@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnpike Car Wash & Detailing</title>
+    <meta name="description" content="5-Star Rated Premium Hand Car Wash & Detailing in Oxford. Visit us at Abingdon Rd, Clifton Hampden.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // blue-900
+                        secondary: '#3b82f6', // blue-500
+                        accent: '#f59e0b', // amber-500
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-900 border-b border-white/10 fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-3 group">
+                        <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1 overflow-hidden transition-transform group-hover:scale-105">
+                            <img src="images/logo.jpg" alt="Turnpike Logo" class="w-full h-full object-cover">
+                        </div>
+                        <span class="tracking-tight">Turnpike <span class="font-light text-gray-400 group-hover:text-accent transition-colors">Car Wash</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Links & CTA -->
+                <div class="hidden md:flex items-center">
+                    <!-- Links with Sliding Pill Container -->
+                    <div class="relative flex items-center space-x-1 px-2 py-1 nav-links-container z-10">
+                        <!-- Sliding Pill Background -->
+                        <div id="nav-pill" class="absolute bg-white/10 rounded-full transition-all duration-300 ease-out pointer-events-none" style="opacity: 0; left: 0; top: 0; width: 0; height: 0;"></div>
+                        
+                        <a href="#about" class="nav-link px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium rounded-full relative z-20">About</a>
+                        <a href="#services" class="nav-link px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium rounded-full relative z-20">Services</a>
+                        <a href="#reviews" class="nav-link px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium rounded-full relative z-20">Reviews</a>
+                        <a href="#location" class="nav-link px-4 py-2 text-gray-300 hover:text-white transition-colors font-medium rounded-full relative z-20">Location</a>
+                    </div>
+                    
+                    <!-- Glowing Pulse CTA Button -->
+                    <div class="pl-6 ml-2 border-l border-white/10">
+                        <div class="relative flex items-center">
+                            <!-- Pulse Effect -->
+                            <div class="absolute inset-0 bg-accent rounded-xl animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] opacity-40"></div>
+                            <!-- Button -->
+                            <a href="tel:07727535253" class="relative bg-accent text-gray-900 px-6 py-2.5 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.5)] flex items-center gap-2 hover:scale-105">
+                                <i class="fa-solid fa-phone"></i> 07727 535253
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-white/10">
+            <div class="px-4 pt-4 pb-6 space-y-3 sm:px-6">
+                <a href="#about" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition">About</a>
+                <a href="#services" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition">Services</a>
+                <a href="#reviews" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition">Reviews</a>
+                <a href="#location" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition">Location</a>
+                <div class="pt-2">
+                    <a href="tel:07727535253" class="flex justify-center items-center px-4 py-3 text-base font-bold text-gray-900 bg-accent hover:bg-yellow-400 rounded-xl transition shadow-[0_0_15px_rgba(245,158,11,0.5)]">
+                        <i class="fa-solid fa-phone mr-2"></i> Call 07727 535253
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-[100dvh] flex items-center pt-28 pb-16 md:pt-20 md:pb-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full mt-8 md:mt-0">
+            <div class="md:w-2/3">
+                <!-- Glowing 3D Review Badge -->
+                <div class="inline-flex items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-xl border border-white/20 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full mb-6 sm:mb-8 shadow-[0_0_30px_rgba(245,158,11,0.15)] animate-[pulse_4s_ease-in-out_infinite] transform hover:scale-105 transition-transform cursor-default">
+                    <div class="flex text-accent text-xs sm:text-sm drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-xs sm:text-sm font-semibold tracking-wide whitespace-nowrap">5.0 Rated by 163 customers</span>
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl md:text-6xl tracking-tight font-extrabold text-white mb-4 sm:mb-6 leading-tight">
+                    Premium Hand Car Wash & <span class="text-accent drop-shadow-[0_0_15px_rgba(245,158,11,0.4)] block sm:inline mt-1 sm:mt-0">Detailing</span>
+                </h1>
+                
+                <p class="mt-3 text-sm sm:text-base text-gray-300 sm:mt-5 sm:max-w-xl md:text-xl font-light mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0">
+                    Experience Oxford's top-rated car care. Meticulous attention to detail, premium products, and a flawless finish every time.
+                </p>
+                
+                <!-- Luxury Magnetic Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start w-full sm:w-auto px-2 sm:px-0">
+                    <!-- Primary Button (Glowing Amber) -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Turnpike+Car+Wash,+Abingdon+Rd,+Clifton+Hampden,+Oxford+OX14+3DE" target="_blank" class="magnetic-btn w-full sm:w-auto inline-flex bg-accent text-gray-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold hover:bg-yellow-400 transition-colors shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:shadow-[0_0_35px_rgba(245,158,11,0.7)] text-base sm:text-lg items-center justify-center gap-3">
+                        <i class="fa-solid fa-location-dot"></i> Get Directions
+                    </a>
+                    <!-- Secondary Button (Minimalist Transparent) -->
+                    <a href="tel:07727535253" class="magnetic-btn w-full sm:w-auto inline-flex bg-transparent text-white border border-white/40 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold hover:bg-white hover:text-gray-900 transition-colors shadow-none text-base sm:text-lg items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative bg-white overflow-hidden">
+        <!-- Subtle Pattern Background -->
+        <div class="absolute inset-0 opacity-40 pointer-events-none" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Premium Photorealistic Image (AOS Animated) -->
+                <div class="relative" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] relative">
+                        <img src="images/about_photoreal.jpg" alt="Photorealistic Hand Car Wash" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700">
+                    </div>
+                    
+                    <!-- Floating Featured Review -->
+                    <div class="absolute -bottom-8 -right-4 md:-right-8 bg-white p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-w-xs border border-gray-100 z-20" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex text-accent text-sm mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium text-sm italic mb-4">"Absolutely the best car wash in Oxford. They brought my paint back to life!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary font-bold">JD</div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">John D.</p>
+                                <p class="text-xs text-gray-500">Local Guide</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content & 3D Cards (AOS Animated) -->
+                <div class="flex flex-col justify-center mt-12 lg:mt-0" data-aos="fade-left" data-aos-duration="1000">
+                    <h2 class="text-base text-secondary font-bold tracking-widest uppercase mb-2">Why Choose Us</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">The finest hand wash in Oxford</h3>
+                    <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                        We don't use harsh automated brushes. Every vehicle is washed by hand by our experienced detailing team, ensuring a safe and immaculate clean.
+                    </p>
+
+                    <!-- Stacked Interactive Cards (3D Tilt) -->
+                    <div class="space-y-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-5 group transform-style-3d" 
+                             data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-max="5" data-tilt-speed="400" data-tilt-scale="1.02">
+                            <div class="w-20 h-20 shrink-0 rounded-xl overflow-hidden shadow-md transform translate-z-10">
+                                <img src="images/thumb_hand_wash.jpg" alt="Hand Wash" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="transform translate-z-10">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition">100% Hand Wash</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Gentle on your paintwork, tough on dirt. We wash every car by hand for maximum safety and shine.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-5 group transform-style-3d" 
+                             data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-max="5" data-tilt-speed="400" data-tilt-scale="1.02">
+                            <div class="w-20 h-20 shrink-0 rounded-xl overflow-hidden shadow-md transform translate-z-10">
+                                <img src="images/thumb_five_star.jpg" alt="Perfect Rating" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="transform translate-z-10">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition">5.0 Star Rating</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">With 163 flawless 5-star reviews on Google, our reputation in Oxford speaks for itself.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-5 group transform-style-3d" 
+                             data-tilt data-tilt-glare data-tilt-max-glare="0.3" data-tilt-max="5" data-tilt-speed="400" data-tilt-scale="1.02">
+                            <div class="w-20 h-20 shrink-0 rounded-xl overflow-hidden shadow-md transform translate-z-10">
+                                <img src="images/thumb_detailing.jpg" alt="Detailing" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="transform translate-z-10">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition">Premium Detailing</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">From standard exterior washes to full interior valets and protective ceramic coatings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="py-24 bg-gray-900 relative">
+        <!-- Background decorative blob -->
+        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-blue-900/30 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-accent/20 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div>
+                    <h2 class="text-accent font-bold tracking-widest uppercase mb-2">Our Services</h2>
+                    <h3 class="text-4xl font-extrabold text-white sm:text-5xl">Professional Cleaning</h3>
+                </div>
+                <p class="text-sm text-gray-400 mt-4 md:mt-0">*Prices vary by vehicle size and condition.</p>
+            </div>
+
+            <!-- Horizontal Swipeable Carousel -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 -mx-4 px-4 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                
+                <!-- Service 1 -->
+                <div class="snap-center shrink-0 w-[85vw] sm:w-[22rem] md:w-[24rem] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden group hover:border-accent/50 transition duration-500 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.2)]" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="images/service_exterior_1788863687122.jpg" alt="Exterior Wash" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative -mt-10">
+                        <h3 class="text-2xl font-bold text-white mb-6">Exterior Wash</h3>
+                        <ul class="space-y-3 mb-8 text-gray-300">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Premium snow foam wash</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Alloy wheels deep cleaned</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Tires dressed to high shine</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Streak-free exterior glass</li>
+                        </ul>
+                        <a href="tel:07727535253" class="inline-flex items-center text-accent font-semibold hover:text-white transition gap-2">
+                            Call for Pricing <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="snap-center shrink-0 w-[85vw] sm:w-[22rem] md:w-[24rem] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden group hover:border-accent/50 transition duration-500 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.2)]" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="images/service_interior_1788863699535.jpg" alt="Mini Valet" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative -mt-10">
+                        <h3 class="text-2xl font-bold text-white mb-6">Mini Valet</h3>
+                        <ul class="space-y-3 mb-8 text-gray-300">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Includes Exterior Wash</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Full interior vacuuming</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Dashboard & trim wipe down</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Interior glass polished</li>
+                        </ul>
+                        <a href="tel:07727535253" class="inline-flex items-center text-accent font-semibold hover:text-white transition gap-2">
+                            Call for Pricing <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="snap-center shrink-0 w-[85vw] sm:w-[22rem] md:w-[24rem] bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden group hover:border-accent/50 transition duration-500 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.2)]" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="images/service_detailing_1788863715341.jpg" alt="Full Detailing" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative -mt-10">
+                        <h3 class="text-2xl font-bold text-white mb-6">Full Detailing</h3>
+                        <ul class="space-y-3 mb-8 text-gray-300">
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Complete deep clean inside & out</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Upholstery/seats shampooed</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Machine polish & wax applied</li>
+                            <li class="flex items-start"><i class="fa-solid fa-circle-check text-accent mt-1 mr-3"></i> Ceramic coating options</li>
+                        </ul>
+                        <a href="tel:07727535253" class="inline-flex items-center text-accent font-semibold hover:text-white transition gap-2">
+                            Call for Pricing <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Mobile Swipe Hint -->
+            <div class="flex justify-center mt-4 sm:hidden text-gray-500">
+                <i class="fa-solid fa-arrows-left-right animate-pulse"></i> <span class="ml-2 text-sm">Swipe to see more</span>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="py-24 bg-gray-900 relative border-t border-white/5">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-gray-900 to-gray-900 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-accent font-bold tracking-widest uppercase mb-2">Customer Testimonials</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">Don't just take our word for it.</h3>
+                <div class="inline-flex items-center justify-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-2 shadow-lg">
+                    <i class="fa-brands fa-google text-xl text-white"></i>
+                    <span class="text-gray-300 font-medium">Excellent <span class="text-white font-bold">5.0</span> out of 5</span>
+                </div>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                
+                <!-- Review 1: John Thomas -->
+                <div class="break-inside-avoid bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-accent/50 transition duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-white font-bold text-xl shadow-lg">J</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">John Thomas</h4>
+                                <p class="text-xs text-gray-400 mt-1">Local Guide · 11 reviews</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-400 text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <div class="flex text-accent text-sm mb-4 gap-1 drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base italic">
+                        "100% the best hand car wash I’ve been to, and I’ve spent a lot of time trying to find the ideal one."
+                    </p>
+                    <!-- Owner Response -->
+                    <div class="bg-gray-900/80 rounded-xl p-4 border border-white/5 mt-6 relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-accent/50"></div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-reply text-accent text-xs"></i>
+                            <span class="text-white text-xs font-bold uppercase tracking-wider">Owner Response</span>
+                        </div>
+                        <p class="text-gray-400 text-xs leading-relaxed">Thank you so much for your kind words. We're thrilled you're happy with our friendly service and attention to detail. We truly appreciate your loyalty and look forward to seeing you again soon!</p>
+                    </div>
+                </div>
+
+                <!-- Review 2: Erika Caro -->
+                <div class="break-inside-avoid bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-accent/50 transition duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-600 to-purple-400 flex items-center justify-center text-white font-bold text-xl shadow-lg">E</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">Erika Caro</h4>
+                                <p class="text-xs text-gray-400 mt-1">Local Guide · 13 reviews</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-400 text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <div class="flex text-accent text-sm mb-4 gap-1 drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base italic mb-3">
+                        "I had the best experience at this car wash! The team is incredibly professional and pays great attention to detail. The owner was so kind—he got me a coffee and a sweet treat for my child, which was such a thoughtful touch. The waiting area is beautiful, with a TV and books to keep kids entertained."
+                    </p>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base italic">
+                        "He also gave great recommendations to keep my car looking its best... Honestly, it’s the best clean my car has had in years. Highly recommend!"
+                    </p>
+                </div>
+
+                <!-- Review 3: Sparkle Sims -->
+                <div class="break-inside-avoid bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-accent/50 transition duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-400 flex items-center justify-center text-white font-bold text-xl shadow-lg">S</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">Sparkle Sims</h4>
+                                <p class="text-xs text-gray-400 mt-1">5 reviews</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-400 text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <div class="flex text-accent text-sm mb-4 gap-1 drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base italic">
+                        "All the guys are lovely and do an amazing job. Can not fault them. Won’t go anywhere else. I 100% recommend to anyone wanting a lovely clean car. With a great service. Thank you all ❤️"
+                    </p>
+                </div>
+
+                <!-- Review 4: Ki Pickering -->
+                <div class="break-inside-avoid bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-accent/50 transition duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)] group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-400 flex items-center justify-center text-white font-bold text-xl shadow-lg">K</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg leading-tight">Ki Pickering</h4>
+                                <p class="text-xs text-gray-400 mt-1">10 reviews</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-gray-400 text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <div class="flex text-accent text-sm mb-4 gap-1 drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-sm md:text-base italic">
+                        "Came in for a wash for my golf, really friendly and welcoming people, was offered coffee, a comfy place to sit while they cleaned my car and my car both looks and smells great. Would definitely recommend, they're very deserving of their current rating and I'll definitely be coming back."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact / Footer Merged -->
+    <section id="location" class="pt-24 pb-12 bg-gray-900 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="lg:text-center mb-16" data-aos="fade-up">
+                <h2 class="text-accent font-bold tracking-widest uppercase mb-2">Visit Us Today</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Drop by our Oxford wash center.</h3>
+            </div>
+
+            <!-- Luxury Split Frame -->
+            <div class="bg-slate-800/50 backdrop-blur-md rounded-[2rem] border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col lg:flex-row mb-20" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- Left: Contact Details -->
+                <div class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <p class="text-gray-400 mb-10 text-lg leading-relaxed">No appointment necessary for standard exterior washes! Drive in today to experience the ultimate hand car wash.</p>
+                    
+                    <div class="space-y-8">
+                        <!-- Detail 1: Address -->
+                        <div class="flex items-start gap-5 group cursor-pointer">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:border-accent/50 transition duration-300">
+                                <i class="fa-solid fa-location-dot text-2xl text-accent"></i>
+                            </div>
+                            <div class="relative pb-1">
+                                <h4 class="font-bold text-lg text-white mb-1">Address</h4>
+                                <p class="text-gray-300">Abingdon Rd, Clifton Hampden<br>Oxford OX14 3DE</p>
+                                <div class="absolute left-0 bottom-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Detail 2: Hours -->
+                        <div class="flex items-start gap-5 group cursor-pointer">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:border-accent/50 transition duration-300">
+                                <i class="fa-solid fa-clock text-2xl text-accent"></i>
+                            </div>
+                            <div class="relative pb-1">
+                                <h4 class="font-bold text-lg text-white mb-1">Opening Hours</h4>
+                                <p class="text-gray-300">Monday - Sunday<br>9:00 AM - 6:00 PM</p>
+                                <div class="absolute left-0 bottom-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Detail 3: Phone -->
+                        <div class="flex items-start gap-5 group cursor-pointer">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 group-hover:border-accent/50 transition duration-300">
+                                <i class="fa-solid fa-phone text-2xl text-accent"></i>
+                            </div>
+                            <div class="relative pb-1">
+                                <h4 class="font-bold text-lg text-white mb-1">Phone</h4>
+                                <a href="tel:07727535253" class="text-gray-300 hover:text-white transition block">07727 535253</a>
+                                <div class="absolute left-0 bottom-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Turnpike+Car+Wash,+Abingdon+Rd,+Clifton+Hampden,+Oxford+OX14+3DE" target="_blank" class="inline-flex items-center gap-3 bg-accent text-gray-900 px-8 py-4 rounded-xl font-bold hover:bg-yellow-400 transition shadow-[0_10px_20px_-10px_rgba(245,158,11,0.5)] transform hover:-translate-y-1">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Dark Mode Map -->
+                <div class="lg:w-1/2 h-[400px] lg:h-auto relative border-l border-white/5">
+                    <div class="absolute inset-0 bg-slate-900 pointer-events-none"></div> <!-- Behind iframe -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9943.905470701831!2d-1.221597813589634!3d51.65116773323067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876b8bbcb753697%3A0xe670059345717462!2sTurnpike%20Car%20Wash%20%26%20Detailing!5e0!3m2!1sen!2suk!4v1690000000000!5m2!1sen!2suk" 
+                        class="absolute inset-0 w-full h-full border-0 transition duration-700"
+                        style="filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(100%);"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <!-- Inner shadow overlay for luxury depth -->
+                    <div class="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] pointer-events-none"></div>
+                </div>
+
+            </div>
+
+            <!-- Seamless Footer -->
+            <footer class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3 text-2xl font-bold text-white">
+                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1 overflow-hidden">
+                        <img src="images/logo.jpg" alt="Turnpike Logo" class="w-full h-full object-cover">
+                    </div>
+                    <span class="tracking-tight">Turnpike <span class="font-light text-gray-400">Car Wash</span></span>
+                </div>
+                <div class="text-gray-500 text-sm text-center md:text-left">
+                    &copy; <span id="year"></span> Turnpike Car Wash & Detailing. All rights reserved.
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-gray-900 hover:border-accent transition group">
+                        <i class="fa-brands fa-facebook-f group-hover:scale-110 transition"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-gray-900 hover:border-accent transition group">
+                        <i class="fa-brands fa-instagram group-hover:scale-110 transition"></i>
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Turnpike+Car+Wash,+Abingdon+Rd,+Clifton+Hampden,+Oxford+OX14+3DE" target="_blank" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-accent hover:text-gray-900 hover:border-accent transition group">
+                        <i class="fa-brands fa-google group-hover:scale-110 transition"></i>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Vanilla Tilt 3D Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: true, // whether animation should happen only once - while scrolling down
+            offset: 100, // offset (in px) from the original trigger point
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Sliding Pill Navigation Logic
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navPill = document.getElementById('nav-pill');
+        const navContainer = document.querySelector('.nav-links-container');
+
+        if (navLinks.length > 0 && navPill && navContainer) {
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', (e) => {
+                    const linkRect = e.target.getBoundingClientRect();
+                    const containerRect = navContainer.getBoundingClientRect();
+                    
+                    navPill.style.width = `${linkRect.width}px`;
+                    navPill.style.height = `${linkRect.height}px`;
+                    navPill.style.left = `${linkRect.left - containerRect.left}px`;
+                    navPill.style.top = `${linkRect.top - containerRect.top}px`;
+                    navPill.style.opacity = '1';
+                });
+            });
+
+            navContainer.addEventListener('mouseleave', () => {
+                navPill.style.opacity = '0';
+            });
+        }
+
+        // Magnetic Button Logic
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                // Move button slightly towards cursor
+                btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                // Smoothly return to center
+                btn.style.transform = `translate(0px, 0px)`;
+                btn.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            });
+            btn.addEventListener('mouseenter', () => {
+                // Remove transition during movement for responsive tracking
+                btn.style.transition = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
