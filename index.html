@@ -39,7 +39,7 @@
         
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden w-full relative">
 
     <!-- Navigation -->
     <nav class="bg-gray-900/95 backdrop-blur-md border-b border-white/10 fixed w-full z-50 top-0">
@@ -108,7 +108,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-[100dvh] flex items-center pt-28 pb-16 md:pt-20 md:pb-0">
+    <section id="home" class="hero-bg min-h-[100svh] flex items-center pt-28 pb-16 md:pt-20 md:pb-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full mt-8 md:mt-0">
             <div class="md:w-2/3">
                 <!-- Glowing 3D Review Badge -->
@@ -540,10 +540,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     
     <script>
-        // Initialize AOS animations
+        // Initialize AOS animations with mobile performance optimizations
         AOS.init({
-            once: true, // whether animation should happen only once - while scrolling down
-            offset: 100, // offset (in px) from the original trigger point
+            once: true, // Animation happens only once
+            offset: 50, // Trigger earlier on mobile so it doesn't pop in late
+            duration: 700, // Slightly faster for snappier mobile feel
+            easing: 'ease-out-cubic', // Hardware accelerated smooth deceleration
+            mirror: false,
+            anchorPlacement: 'top-bottom'
         });
 
         // Set current year in footer
